@@ -1,5 +1,3 @@
-# bat-tracking-infographic
- 
 # **Is Bat Speed King? – Analyzing MLB's 2024 Bat Tracking Data**
 
 ## **Project Overview**
