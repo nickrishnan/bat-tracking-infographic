@@ -11,7 +11,7 @@ geometry: margin=.5in
 \textit{- Tony Gwynn}
 \end{center}
 
-```{r}
+```{r, include = FALSE}
 library(tidyverse)
 library(ggtext)
 library(patchwork)
@@ -31,7 +31,7 @@ mlb_red <- "#D50032"
 ```
 
 
-```{r}
+```{r, include = FALSE}
 data$run_value_group <- ifelse(data$batter_run_value >= 
                                  mean(data$batter_run_value), 
                                "Above Average", "Below Average")
@@ -65,7 +65,7 @@ facetted_density_plot <-
           panel.border = element_rect(colour = "black", fill=NA, size=1))
 ```
 
-```{r}
+```{r, include = FALSE}
 scatter <- ggplot(data, aes(x=avg_bat_speed, y=whiff_per_swing, color=woba)) +
   geom_point(alpha=0.7, size=3) +
   scale_color_gradient(low=mlb_blue, high=mlb_red) +
@@ -83,7 +83,7 @@ scatter <- ggplot(data, aes(x=avg_bat_speed, y=whiff_per_swing, color=woba)) +
 ```
 
 
-```{r}
+```{r, include = FALSE}
 data$swing_length_bin <- cut(data$swing_length, breaks = 3, 
                              labels = c("Short", "Medium", "Long"))
 data$swing_length_bin <- factor(data$swing_length_bin, 
@@ -111,7 +111,7 @@ violin_plot <- ggplot(data, aes(x = swing_length_bin, y = blast_per_bat_contact,
 
 ```
 
-```{r, include = FALSE}
+```{r}
 #| fig-width: 8.5
 #| fig-height: 3
 #| warning: false
@@ -121,7 +121,7 @@ facetted_density_plot
 ```
 \vspace{1.5em}
 
-```{r, include = FALSE}
+```{r}
 #| fig-width: 8.5
 #| fig-height: 3
 #| warning: false
@@ -130,7 +130,7 @@ facetted_density_plot
 scatter
 ```
 \vspace{1.5em}
-```{r, include = FALSE}
+```{r}
 #| fig-width: 8.5
 #| fig-height: 3
 #| warning: false
